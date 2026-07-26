@@ -8,11 +8,46 @@ public class Model {
     private HashSet<ParentAccount> parentAccounts;
     private ArrayList<Item> storeItems;
     private ArrayList<PlantStatus> plantStatuses;
+    private ArrayList<Account> accounts;
 
     public Model() {
         parentAccounts = new HashSet<>();
         storeItems = new ArrayList<>();
         plantStatuses = new ArrayList<>();
+        accounts = new ArrayList<>();
+    }
+
+    //Accounts
+    
+    public void addAccount(Account account) {
+        accounts.add(account);
+
+        if (account instanceof ParentAccount) {
+            parentAccounts.add((ParentAccount) account);
+        }
+    }
+
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+
+        if (account instanceof ParentAccount) {
+            parentAccounts.remove((ParentAccount) account);
+        }
+    }
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
+    }
+
+    public Account getAccountByUsername(String username) {
+
+        for (Account account : accounts) {
+            if (account.getUserName().equals(username)) {
+                return account;
+            }
+        }
+
+        return null;
     }
 
     // Parent Accounts
