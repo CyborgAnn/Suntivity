@@ -1,4 +1,4 @@
-package edu.utsa.cs3443.suntivity_model;
+package suntivity_model;
 
 public class Plant {
 
