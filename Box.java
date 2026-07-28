@@ -4,18 +4,18 @@ import java.io.File;
 
 public class Box extends Item {
 
-    private File image;
+    private String imagePath;
 
-    public Box(int cost, String name, File image) {
+    public Box(int cost, String name, String imagePath) {
         super(cost, name);
-        this.image = image;
+        this.imagePath = imagePath;
     }
 
-    public void setImage(File image){
-        this.image = image;
+    public void setImagePath(String imagePath){
+        this.imagePath = imagePath;
     }
 
-    public File getImage(){
-        return image;
+    public String getImage(){
+        return imagePath;
     }
 }
