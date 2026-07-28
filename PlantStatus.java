@@ -1,7 +1,5 @@
 package suntivity_model;
 
-import java.io.File;
-
 public class PlantStatus {
 
     private String name;
