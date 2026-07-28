@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+      <VBox alignment="CENTER" prefHeight="711.0" prefWidth="350.0" spacing="20" style="-fx-background-color: #A8E6A3;">
+
+
+          <ImageView fitHeight="80.0" fitWidth="270.0" preserveRatio="true">
+
+              <image>
+                  <Image url="@../DataFiles/SuntivityDesigns/AppArt/AppName2.png" />
+              </image>
+
+          </ImageView>
+          <ImageView fitHeight="109.0" fitWidth="125.0" preserveRatio="true" translateX="-60.0" translateY="-200.0">
+
+
+          </ImageView>
+
+          <Label prefHeight="29.0" prefWidth="233.0" style="-fx-font-size: 24px;" text="Grow Your Productivity" textAlignment="CENTER" textFill="#035e1b" translateY="-60.0" />
+
+
+
+          <Button onAction="#showLogin" prefWidth="150" text="Log In" translateY="70.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+
+
+
+          <Label style="-fx-font-size: 14px;" text="New Member?" textFill="#035e1b" translateY="150.0" />
+
+          <Button onAction="#showSignUp" prefWidth="150" text="Sign Up" translateY="140.0">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+         <Label layoutX="142.0" layoutY="421.0" style="-fx-font-size: 14px;" text="Welcome Back!" textAlignment="CENTER" textFill="#035e1b" translateY="-115.0" />
+         <ImageView fitHeight="76.0" fitWidth="77.0" layoutX="132.0" layoutY="227.0" preserveRatio="true" translateX="130.0" translateY="-520.0">
+            <image>
+               <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+            </image>
+         </ImageView>
+
+
+      </VBox>
+
