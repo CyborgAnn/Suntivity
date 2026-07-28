@@ -1,7 +1,5 @@
 package suntivity_model;
 
-import java.io.File;
-
 public class Box extends Item {
 
     private String imagePath;
