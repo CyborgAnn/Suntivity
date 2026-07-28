@@ -68,7 +68,7 @@ public class ChildAccount extends Account {
 
     public boolean purchaseItem(Item item) {
 
-        if(points >= item.getCost()) {
+        if(points >= item.getCost() && !items.contains(item)) {
             points -= item.getCost();
             items.add(item);
             return true;
@@ -95,6 +95,15 @@ public class ChildAccount extends Account {
 
     public ArrayList<Item> getItems() {
         return items;
+    }
+
+    public Item getItem(String name) {
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     public void setParent(ParentAccount parent){
