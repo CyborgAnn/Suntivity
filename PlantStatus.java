@@ -5,11 +5,11 @@ import java.io.File;
 public class PlantStatus {
 
     private String name;
-    private File image;
+    private String imagePath;
 
-    public PlantStatus(String name, File image) {
+    public PlantStatus(String name, String imagePath) {
         this.name = name;
-        this.image = image;
+        this.imagePath = imagePath;
     }
 
     public void setName(String name) {
@@ -20,11 +20,11 @@ public class PlantStatus {
         return name;
     }
 
-    public void setImage(File image) {
-        this.image = image;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    public File getImage() {
-        return image;
+    public String getImagePath() {
+        return imagePath;
     }
 }
