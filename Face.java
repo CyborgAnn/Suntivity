@@ -1,7 +1,5 @@
 package suntivity_model;
 
-import java.io.File;
-
 public class Face extends Item {
 
     private String imagePath;
@@ -11,7 +9,7 @@ public class Face extends Item {
         this.imagePath = imagePath;
     }
 
-    public void setImage(String image){
+    public void setImage(String imagePath){
         this.imagePath = imagePath;
     }
 
