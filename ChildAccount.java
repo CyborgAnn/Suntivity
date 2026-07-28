@@ -49,6 +49,15 @@ public class ChildAccount extends Account {
         return incomplete;
     }
 
+    public Task getTask(String name) {
+        for (Task task : this.getIncompleteTasks()) {
+            if (task.getName().equalsIgnoreCase(name)) {
+                return task;
+            }
+        }
+        return null;
+    }
+
     public void equipItem(Item item) {
 
         if (item instanceof Color) {
