@@ -18,7 +18,7 @@ public class Model {
     }
 
     //Accounts
-    
+
     public void addAccount(Account account) {
         accounts.add(account);
 
@@ -85,6 +85,15 @@ public class Model {
 
     public ArrayList<Item> getStoreItems() {
         return storeItems;
+    }
+
+    public Item getStoreItem(String name) {
+        for (Item item : storeItems) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     // Plant Statuses
