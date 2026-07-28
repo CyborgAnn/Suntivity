@@ -99,7 +99,7 @@ public class ModelInitializer {
         child1.equipItem(child1.getItem("Red"));
         child1.equipItem(child1.getItem("Face 5"));
         child1.equipItem(child1.getItem("Plant Pot 5"));
-        child3.equipItem(child1.getItem("Face 1"));
+        child3.equipItem(child3.getItem("Face 1"));
 
         //Add Accounts to model
         suntivityModel.addAccount(parent1);
@@ -113,15 +113,15 @@ public class ModelInitializer {
         child3.linkToParent(parent1.getLinkingCode(), suntivityModel);
 
         //Create tasks for children
-        Task task1_1 = new Task(child1, parent1, "Defeat Rebels", "I don't want these rebel scum getting anywhere near my Death Star. Destroy them at once!", 5, 25, 1200, 100);
-        Task task1_2 = new Task(child1, parent1, "Imperial Meeting", "I know you hate these meetings and that you would much rather be choking younglings, but they are essential to the operation of the empire.", 5, 26, 1600, 50);
-        Task task2_1 = new Task(child2, parent1, "Leave Death Star", "Your aim is abysmal, as a result you are fired from the Death Star and must leave immediately.", 5, 25, 1000, 1);
-        Task task2_2 = new Task(child2, parent1, "Aim Practice", "Your aim is abysmal, now must redo basic training at the imperial camp.", 6, 12, 800, 10);
-        Task task3_1 = new Task(child3, parent1, "Clean Garbage Compactor", "As punishment for letting the rebels escape, you must now clean up the garbage compactor.", 5, 26, 1800, 1);
+        parent1.createTask(child1,"Defeat Rebels", "I don't want these rebel scum getting anywhere near my Death Star. Destroy them at once!", 5, 25, 1200, 100);
+        parent1.createTask(child1, "Imperial Meeting", "I know you hate these meetings and that you would much rather be choking younglings, but they are essential to the operation of the empire.", 5, 26, 1600, 50);
+        parent1.createTask(child2, "Leave Death Star", "Your aim is abysmal, as a result you are fired from the Death Star and must leave immediately.", 5, 25, 1000, 1);
+        parent1.createTask(child2, "Aim Practice", "Your aim is abysmal, now must redo basic training at the imperial camp.", 6, 12, 800, 10);
+        parent1.createTask(child3, "Clean Garbage Compactor", "As punishment for letting the rebels escape, you must now clean up the garbage compactor.", 5, 26, 1800, 1);
 
         //Set complete tasks
-        child2.completeTask(task2_1);
-        child3.completeTask(task3_1);
+        child2.completeTask(child2.getTask("Leave Death Star"));
+        child3.completeTask(child3.getTask("Clean Garbage Compactor"));
 
         //return the model
         return suntivityModel;
