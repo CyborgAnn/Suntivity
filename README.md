@@ -158,10 +158,12 @@ The model package contains the application's data and logic, including:
 The controller package manages user interaction, including:
 
 - LoginController
+- NavigationController
 - ParentDashboardController
 - ChildDashboardController
 - CreateChildController
 - ShopController
+- SignUpController
 
 ## View Files
 
@@ -171,8 +173,10 @@ The application interface is created using JavaFX FXML files, including:
 - Login screen
 - Parent dashboard
 - Child dashboard
+- Child task view
 - Create child account screen
 - Shop screen
+- Signup screen
 
 ---
 
