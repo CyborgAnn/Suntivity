@@ -5,48 +5,98 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<AnchorPane prefHeight="800.0" prefWidth="390.0" style="-fx-background-color: #A8E6A3;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.suntivity.controller.NavigationController">
 
-      <VBox alignment="CENTER" prefHeight="711.0" prefWidth="350.0" spacing="20" style="-fx-background-color: #A8E6A3;">
+    <children>
+      <ImageView fitHeight="357.0" fitWidth="210.0" layoutX="225.0" layoutY="453.0" preserveRatio="true">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/SunflowerWithStem2.png" />
+         </image>
+      </ImageView>
 
+        <!-- Anchored App Logo -->
+        <ImageView fitHeight="97.0" fitWidth="296.0" layoutX="47.0" layoutY="180.0" preserveRatio="true">
 
-          <ImageView fitHeight="80.0" fitWidth="270.0" preserveRatio="true">
-
-              <image>
-                  <Image url="@../DataFiles/SuntivityDesigns/AppArt/AppName2.png" />
-              </image>
-
-          </ImageView>
-          <ImageView fitHeight="109.0" fitWidth="125.0" preserveRatio="true" translateX="-60.0" translateY="-200.0">
-
-
-          </ImageView>
-
-          <Label prefHeight="29.0" prefWidth="233.0" style="-fx-font-size: 24px;" text="Grow Your Productivity" textAlignment="CENTER" textFill="#035e1b" translateY="-60.0" />
-
-
-
-          <Button onAction="#showLogin" prefWidth="150" text="Log In" translateY="70.0">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Button>
-
-
-
-          <Label style="-fx-font-size: 14px;" text="New Member?" textFill="#035e1b" translateY="150.0" />
-
-          <Button onAction="#showSignUp" prefWidth="150" text="Sign Up" translateY="140.0">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Button>
-         <Label layoutX="142.0" layoutY="421.0" style="-fx-font-size: 14px;" text="Welcome Back!" textAlignment="CENTER" textFill="#035e1b" translateY="-115.0" />
-         <ImageView fitHeight="76.0" fitWidth="77.0" layoutX="132.0" layoutY="227.0" preserveRatio="true" translateX="130.0" translateY="-520.0">
             <image>
-               <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/AppName2.png" />
             </image>
-         </ImageView>
+
+        </ImageView>
 
 
-      </VBox>
+        <!-- Main content buttons/text -->
+        <VBox alignment="CENTER" layoutY="350.0" prefWidth="390.0" spacing="18.0">
 
+
+            <Label text="Grow Your Productivity" textFill="#035e1b">
+
+                <font>
+                    <Font size="24.0" />
+                </font>
+
+            </Label>
+
+
+            <Button onAction="#showLogin" prefHeight="55.0" prefWidth="230.0" style="-fx-background-radius: 15;" text="Log In">
+
+                <font>
+                    <Font size="22.0" />
+                </font>
+
+            </Button>
+
+
+            <Label text="New Member?" textFill="#035e1b">
+
+                <font>
+                    <Font size="14.0" />
+                </font>
+
+            </Label>
+
+
+            <Button onAction="#showSignUp" prefHeight="55.0" prefWidth="230.0" style="-fx-background-radius: 15;" text="Sign Up">
+
+                <font>
+                    <Font size="22.0" />
+                </font>
+
+            </Button>
+
+
+        </VBox>
+      <ImageView fitHeight="141.0" fitWidth="149.0" layoutX="22.0" layoutY="22.0" preserveRatio="true">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="55.0" fitWidth="62.0" layoutX="68.0" layoutY="23.0" preserveRatio="true" translateX="160.0">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="94.0" fitWidth="118.0" layoutX="107.0" layoutY="64.0" preserveRatio="true" translateX="195.0">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="58.0" layoutX="311.0" layoutY="290.0" preserveRatio="true">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="118.0" layoutX="-39.0" layoutY="307.0" preserveRatio="true">
+         <image>
+            <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+         </image>
+      </ImageView>
+        <ImageView fitHeight="258.0" fitWidth="186.0" layoutX="10.0" layoutY="562.0" preserveRatio="true">
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/SunflowerWithStem2.png" />
+            </image>
+      </ImageView>
+
+
+    </children>
+
+</AnchorPane>

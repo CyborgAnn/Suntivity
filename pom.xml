@@ -7,7 +7,7 @@
     <groupId>edu.utsa.cs3443</groupId>
     <artifactId>Suntivity</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Suntivity</name>
+    <taskName>Suntivity</taskName>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

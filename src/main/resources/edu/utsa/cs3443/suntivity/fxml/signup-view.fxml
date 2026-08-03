@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="390.0" style="-fx-background-color: #A8E6A3;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.suntivity.controller.SignUpController">
+
+    <children>
+
+        <!-- Decorative Flowers -->
+
+        <ImageView fitHeight="155.0" fitWidth="161.0" layoutX="-88.0" layoutY="362.0" preserveRatio="true" translateX="400.0">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+            </image>
+
+        </ImageView>
+
+
+        <ImageView fitHeight="186.0" fitWidth="190.0" layoutX="-95.0" layoutY="637.0" preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+            </image>
+
+        </ImageView>
+
+
+        <ImageView fitHeight="212.0" fitWidth="218.0" layoutX="86.0" layoutY="-89.0" preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png" />
+            </image>
+
+        </ImageView>
+
+
+
+        <!-- Logo -->
+
+        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="45.0" layoutY="120.0" preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/AppName2.png" />
+            </image>
+
+        </ImageView>
+
+
+
+
+        <VBox alignment="CENTER" layoutX="21.0" layoutY="214.0" prefHeight="600.0" prefWidth="348.0" spacing="15">
+
+
+            <Label text="Create Account" textFill="#035e1b">
+
+                <font>
+                    <Font size="30" />
+                </font>
+
+            </Label>
+
+
+
+            <TextField fx:id="usernameField" prefWidth="240" promptText="Username" />
+
+
+
+            <PasswordField fx:id="passwordField" prefWidth="240" promptText="Password" />
+
+
+
+            <PasswordField fx:id="confirmPasswordField" prefWidth="240" promptText="Confirm Password" />
+
+
+
+
+
+            <!-- Timezone -->
+
+            <Label text="Select Timezone:" textFill="#035e1b">
+
+                <font>
+                    <Font size="18" />
+                </font>
+
+            </Label>
+
+
+
+            <ChoiceBox fx:id="timeZoneChoice" prefHeight="26" prefWidth="190" />
+
+
+
+
+            
+
+
+
+
+
+
+            <!-- Create Account -->
+
+            <Button fx:id="createAccountButton" onAction="#handleSignUp" prefHeight="40" prefWidth="190" style="-fx-background-radius: 15; -fx-background-color: #4CAF50;" text="Create Parent Account" textFill="WHITE">
+
+                <font>
+                    <Font size="14" />
+                </font>
+
+
+            </Button>
+
+
+
+
+
+            <Button onAction="#handleBack" prefHeight="40" prefWidth="70.0" style="-fx-background-radius: 15;" text="Back">
+
+                <font>
+                    <Font size="14.0" />
+                </font>
+
+            </Button>
+
+
+
+        </VBox>
+
+
+
+    </children>
+
+
+</AnchorPane>

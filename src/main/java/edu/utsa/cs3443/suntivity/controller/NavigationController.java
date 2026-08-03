@@ -4,6 +4,16 @@ import edu.utsa.cs3443.suntivity.model.Account;
 import edu.utsa.cs3443.suntivity.model.ChildAccount;
 import edu.utsa.cs3443.suntivity.model.ParentAccount;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 /**
  * Centralizes navigation between Suntivity screens.
  *
@@ -42,15 +52,47 @@ public class NavigationController {
     /**
      * Displays the login screen.
      */
-    public void showLogin() {
-        // TODO: Load login.fxml
+    @FXML
+    public void showLogin(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/edu/utsa/cs3443/suntivity/fxml/login-view.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource())
+                .getScene()
+                .getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     /**
      * Displays the sign-up screen.
      */
-    public void showSignUp() {
-        // TODO: Load signup.fxml
+    @FXML
+    public void showSignUp(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/edu/utsa/cs3443/suntivity/fxml/signup-view.fxml"
+                )
+        );
+
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource())
+                .getScene()
+                .getWindow();
+
+        Scene scene = new Scene(root, 390, 844);
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**

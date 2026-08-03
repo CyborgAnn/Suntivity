@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="800.0"
+            prefWidth="390.0"
+            style="-fx-background-color:#A8E6A3;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.suntivity.controller.CreateChildController">
+
+
+    <children>
+
+
+        <!-- Decorative Flowers -->
+
+        <ImageView fitHeight="155.0"
+                   fitWidth="161.0"
+                   layoutX="-88.0"
+                   layoutY="362.0"
+                   preserveRatio="true"
+                   translateX="400.0">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png"/>
+            </image>
+
+        </ImageView>
+
+
+        <ImageView fitHeight="186.0"
+                   fitWidth="190.0"
+                   layoutX="-95.0"
+                   layoutY="637.0"
+                   preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png"/>
+            </image>
+
+        </ImageView>
+
+
+        <ImageView fitHeight="212.0"
+                   fitWidth="218.0"
+                   layoutX="86.0"
+                   layoutY="-89.0"
+                   preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/Sunflower.png"/>
+            </image>
+
+        </ImageView>
+
+
+
+
+        <!-- Logo -->
+
+        <ImageView fitHeight="100.0"
+                   fitWidth="300.0"
+                   layoutX="45.0"
+                   layoutY="100.0"
+                   preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/AppName2.png"/>
+            </image>
+
+        </ImageView>
+
+
+
+
+
+        <!-- Create Child Form -->
+
+        <VBox alignment="CENTER"
+              layoutX="21.0"
+              layoutY="220.0"
+              prefWidth="348.0"
+              spacing="15">
+
+
+            <Label text="Create Child Account"
+                   textFill="#035e1b">
+
+                <font>
+                    <Font size="28"/>
+                </font>
+
+            </Label>
+
+
+
+
+            <TextField fx:id="usernameField"
+                       prefWidth="240"
+                       promptText="Child Username"/>
+
+
+
+
+
+            <PasswordField fx:id="passwordField"
+                           prefWidth="240"
+                           promptText="Password"/>
+
+
+
+
+
+            <PasswordField fx:id="confirmPasswordField"
+                           prefWidth="240"
+                           promptText="Confirm Password"/>
+
+
+
+
+
+
+            <Label text="Select Timezone:"
+                   textFill="#035e1b">
+
+                <font>
+                    <Font size="18"/>
+                </font>
+
+            </Label>
+
+
+
+
+
+            <ChoiceBox fx:id="timeZoneChoice"
+                       prefHeight="30"
+                       prefWidth="190"/>
+
+
+
+
+
+
+
+            <Button fx:id="createButton"
+                    onAction="#createChildAccount"
+                    prefHeight="45"
+                    prefWidth="220"
+                    text="Create Child Account"
+                    style="-fx-background-radius:20;
+                           -fx-background-color:#4CAF50;
+                           -fx-text-fill:white;">
+
+
+                <font>
+                    <Font size="16"/>
+                </font>
+
+
+            </Button>
+
+
+
+
+
+
+
+            <Button onAction="#handleBack"
+                    prefHeight="45"
+                    prefWidth="220"
+                    text="Go Back"
+                    style="-fx-background-radius:20;">
+
+
+                <font>
+                    <Font size="16"/>
+                </font>
+
+
+            </Button>
+
+
+
+        </VBox>
+
+
+
+    </children>
+
+
+</AnchorPane>

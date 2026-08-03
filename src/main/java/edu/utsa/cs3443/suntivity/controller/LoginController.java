@@ -1,120 +1,386 @@
 package edu.utsa.cs3443.suntivity.controller;
 
+import edu.utsa.cs3443.suntivity.application.SuntivityApplication;
 import edu.utsa.cs3443.suntivity.model.Account;
 import edu.utsa.cs3443.suntivity.model.ChildAccount;
+import edu.utsa.cs3443.suntivity.model.Model;
 import edu.utsa.cs3443.suntivity.model.ParentAccount;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+
 
 /**
  * Handles user login and directs users to the correct interface.
  */
 public class LoginController {
 
+
     @FXML
     private TextField usernameField;
+
 
     @FXML
     private PasswordField passwordField;
 
+
     private NavigationController navigationController;
-    private List<Account> accounts;
+
+    private Model model;
+
 
 
     /**
-     * Required empty constructor for FXMLLoader.
+     * Required constructor for FXMLLoader.
      */
     public LoginController() {
-        this.navigationController = new NavigationController();
-        this.accounts = new ArrayList<>();
+
+        navigationController = new NavigationController();
+
+        model = SuntivityApplication.getModel();
+
     }
 
 
-    /**
-     * Constructor used when connecting controller with application data.
-     *
-     * @param navigationController handles screen changes
-     * @param accounts list of registered accounts
-     */
-    public LoginController(NavigationController navigationController,
-                           List<Account> accounts) {
-
-        this.navigationController = navigationController;
-        this.accounts = accounts;
-    }
-
 
     /**
-     * Handles login button click from login-view.fxml.
+     * Handles login button click.
      */
     @FXML
     public void handleLogin() {
 
-        String username = usernameField.getText();
-        String password = passwordField.getText();
 
-        Account account = validateCredentials(username, password);
+        String username =
+                usernameField.getText();
 
-        if (account instanceof ParentAccount parent) {
 
-            navigationController.showParentDashboard(parent);
+        String password =
+                passwordField.getText();
 
-        } else if (account instanceof ChildAccount child) {
 
-            navigationController.showChildTasks(child);
 
-        } else {
+        // Empty fields check
+        if (username.isEmpty() || password.isEmpty()) {
 
-            System.out.println("Invalid username or password.");
+            showError(
+                    "Please enter both username and password."
+            );
+
+            return;
+
         }
+
+
+
+        Account account =
+                validateCredentials(
+                        username,
+                        password
+                );
+
+
+
+        // Account not found
+        if (account == null) {
+
+            showError(
+                    "Incorrect username or password."
+            );
+
+            return;
+
+        }
+
+
+
+        System.out.println(
+                "Login successful."
+        );
+
+
+
+        if(account instanceof ParentAccount){
+
+
+            try {
+
+                openParentDashboard(
+                        (ParentAccount) account
+                );
+
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+
+        }
+        else if(account instanceof ChildAccount){
+
+
+            openChildDashboard(
+                    (ChildAccount) account
+            );
+
+
+        }
+
     }
 
 
+
+
+
     /**
-     * Checks user credentials against stored accounts.
+     * Opens Parent Dashboard after successful login.
+     */
+    private void openParentDashboard(ParentAccount parent)
+            throws IOException {
+
+
+
+        FXMLLoader loader =
+                new FXMLLoader(
+                        getClass().getResource(
+                                "/edu/utsa/cs3443/suntivity/fxml/parent-dashboard-view.fxml"
+                        )
+                );
+
+
+
+        Parent root =
+                loader.load();
+
+
+
+        ParentDashboardController controller =
+                loader.getController();
+
+
+
+        controller.setParent(parent);
+
+
+
+        Stage stage =
+                (Stage) usernameField.getScene()
+                        .getWindow();
+
+
+
+        stage.setScene(
+                new Scene(root,390,844)
+        );
+
+
+
+        stage.show();
+
+
+
+        System.out.println(
+                "Parent Dashboard opened."
+        );
+
+    }
+
+
+
+
+
+    /**
+     * Opens Child Dashboard after successful login.
+     */
+    private void openChildDashboard(ChildAccount child) {
+
+        try {
+
+            FXMLLoader loader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/edu/utsa/cs3443/suntivity/fxml/child-dashboard-view.fxml"
+                            )
+                    );
+
+            Parent root = loader.load();
+
+            ChildDashboardController controller =
+                    loader.getController();
+
+            controller.setChild(child);
+
+            Stage stage =
+                    (Stage) usernameField
+                            .getScene()
+                            .getWindow();
+
+            stage.setScene(
+                    new Scene(root, 390, 844)
+            );
+
+            stage.show();
+
+            System.out.println("Child Dashboard opened.");
+
+        }
+        catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+
+
+
+    /**
+     * Displays error popup messages.
+     */
+    private void showError(String message){
+
+
+        Alert alert =
+                new Alert(
+                        Alert.AlertType.ERROR
+                );
+
+
+        alert.setTitle(
+                "Login Error"
+        );
+
+
+        alert.setHeaderText(null);
+
+
+        alert.setContentText(
+                message
+        );
+
+
+        alert.showAndWait();
+
+    }
+
+
+
+
+
+    /**
+     * Checks username and password against stored accounts.
      *
      * @param username entered username
      * @param password entered password
      * @return matching account or null
      */
-    private Account validateCredentials(String username, String password) {
+    private Account validateCredentials(
+            String username,
+            String password) {
 
-        for (Account account : accounts) {
 
-            if (account.getUserName().equals(username)
-                    && account.getPassword().equals(password)) {
+        return model.validateLogin(
+                username,
+                password
+        );
 
-                return account;
-            }
-        }
-
-        return null;
     }
 
 
-    public List<Account> getAccounts() {
-        return accounts;
+
+
+
+    /**
+     * Returns to start screen.
+     */
+    @FXML
+    public void goBack(ActionEvent event)
+            throws IOException {
+
+
+        FXMLLoader loader =
+                new FXMLLoader(
+                        getClass().getResource(
+                                "/edu/utsa/cs3443/suntivity/fxml/start-view.fxml"
+                        )
+                );
+
+
+
+        Parent root =
+                loader.load();
+
+
+
+        Stage stage =
+                (Stage)((Node)event.getSource())
+                        .getScene()
+                        .getWindow();
+
+
+
+        stage.setScene(
+                new Scene(root,390,844)
+        );
+
+
+
+        stage.show();
+
     }
 
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
-    }
+
 
 
     public NavigationController getNavigationController() {
+
         return navigationController;
+
     }
+
+
 
 
     public void setNavigationController(
             NavigationController navigationController) {
 
-        this.navigationController = navigationController;
+        this.navigationController =
+                navigationController;
+
     }
+
+
+
+
+
+    public Model getModel() {
+
+        return model;
+
+    }
+
+
+
+
+
+    public void setModel(Model model) {
+
+        this.model = model;
+
+    }
+
 }

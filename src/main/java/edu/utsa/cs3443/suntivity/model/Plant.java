@@ -1,5 +1,6 @@
 package edu.utsa.cs3443.suntivity.model;
 
+import java.io.File;
 /**
  * Represents a child's virtual plant in Suntivity.
  * The plant grows as the child completes tasks and can be customized
@@ -8,10 +9,15 @@ package edu.utsa.cs3443.suntivity.model;
 public class Plant {
 
     private ChildAccount child;
+
     private PlantStatus status;
+
     private Color color;
+
     private Face face;
+
     private Box box;
+
 
     /**
      * Creates a plant associated with a child account.
@@ -19,46 +25,91 @@ public class Plant {
      * @param child child who owns the plant
      */
     public Plant(ChildAccount child) {
+
         this.child = child;
+
+        this.status =
+                new PlantStatus(
+                        "Worst Health",
+                        new File(
+                                "src/main/resources/edu/utsa/cs3443/suntivity/DataFiles/SuntivityDesigns/CharacterStages/WorstHealth.png"
+                        )
+                );
     }
+
+
 
     public void setChild(ChildAccount child) {
+
         this.child = child;
+
     }
+
 
     public ChildAccount getChild() {
+
         return child;
+
     }
+
+
 
     public void setStatus(PlantStatus status) {
+
         this.status = status;
+
     }
+
 
     public PlantStatus getStatus() {
+
         return status;
+
     }
+
+
 
     public void setColor(Color color) {
+
         this.color = color;
+
     }
+
 
     public Color getColor() {
+
         return color;
+
     }
+
+
 
     public void setFace(Face face) {
+
         this.face = face;
+
     }
+
 
     public Face getFace() {
+
         return face;
+
     }
+
+
 
     public void setBox(Box box) {
+
         this.box = box;
+
     }
 
+
     public Box getBox() {
+
         return box;
+
     }
+
 }

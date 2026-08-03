@@ -1,0 +1,8 @@
+# AccountType,Username,Password,TimeZone
+
+PARENT,homer,donuts,0
+PARENT,marge,donuts,0
+
+CHILD,bart,skate,0
+CHILD,lisa,saxophone,0
+CHILD,maggie,pacifier,0

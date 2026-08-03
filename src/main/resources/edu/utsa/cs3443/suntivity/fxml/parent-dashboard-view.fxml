@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="844.0" prefWidth="390.0" style="-fx-background-color:#A8E6A3;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.suntivity.controller.ParentDashboardController">
+
+
+    <children>
+
+
+        <!-- Decorative Flowers -->
+
+        <ImageView fitHeight="527.0" fitWidth="250.0" layoutX="-121.0" layoutY="320.0" preserveRatio="true">
+
+            <image>
+                <Image url="@../DataFiles/SuntivityDesigns/AppArt/SunflowerWithStem2.png" />
+            </image>
+
+        </ImageView>
+
+
+
+        <!-- HEADER -->
+
+        <StackPane prefHeight="65" prefWidth="390" style="-fx-background-color:#035e1b;">
+
+            <Label text="Parent Dashboard" textFill="WHITE">
+
+                <font>
+                    <Font size="28" />
+                </font>
+
+            </Label>
+
+        </StackPane>
+
+
+
+
+        <!-- TABS -->
+
+        <TabPane layoutY="65" prefHeight="779" prefWidth="390" tabClosingPolicy="UNAVAILABLE">
+
+
+            <tabs>
+
+
+
+                <!-- ================= DASHBOARD ================= -->
+
+
+                <Tab text="Dashboard">
+
+                    <AnchorPane prefWidth="390.0">
+
+
+                        <VBox alignment="TOP_CENTER" layoutX="15" layoutY="15" prefHeight="708.0" prefWidth="360" spacing="10">
+
+
+
+                            <Label prefHeight="29.0" prefWidth="216.0" text="Create New Task" textFill="#035e1b">
+
+                                <font>
+                                    <Font size="30" />
+                                </font>
+
+                            </Label>
+
+
+
+                            <TextField fx:id="taskNameField" prefWidth="280" promptText="Task Name" />
+
+
+
+                            <TextArea fx:id="taskDescriptionField" prefHeight="75" prefWidth="330" promptText="Task Details (150 word limit)" wrapText="true" />
+
+
+                            <!-- TIME LABEL -->
+
+                            <Label text="Set Due Date and Time:" textFill="#035e1b">
+
+                                <font>
+                                    <Font size="16" />
+                                </font>
+
+                            </Label>
+
+
+
+
+                            <!-- DATE -->
+
+                            <DatePicker fx:id="dueDatePicker" prefHeight="26.0" prefWidth="268.0" promptText="Due Date" />
+
+
+                            <!-- TIME SPINNER -->
+
+                            <HBox alignment="CENTER" spacing="8">
+
+
+                                <Spinner fx:id="hourSpinner" prefHeight="26.0" prefWidth="80.0" />
+
+
+                                <Label text=":" />
+
+
+                                <Spinner fx:id="minuteSpinner" prefHeight="26.0" prefWidth="80.0" />
+
+
+                                <ComboBox fx:id="amPmChoice" prefHeight="26.0" prefWidth="80.0" />
+
+
+                            </HBox>
+
+
+
+
+
+                            <ComboBox fx:id="childSelector" prefWidth="220" promptText="Assign Child" />
+
+
+
+                            <ComboBox fx:id="pointsSelector" prefWidth="220" promptText="Assign Points" />
+
+
+
+                            <VBox fx:id="repeatOptionsBox" alignment="CENTER" spacing="8">
+
+
+                                <CheckBox fx:id="repeatCheckBox" text="Repeat Task" />
+
+
+                                <ComboBox fx:id="repeatFrequencyChoice" prefWidth="220" promptText="Repeat Frequency" />
+
+
+                            </VBox>
+
+
+
+
+                            <Button onAction="#createTask" prefHeight="45" prefWidth="220" style="-fx-background-color:#4CAF50;                                            -fx-background-radius:20;                                            -fx-text-fill:white;" text="Send Task">
+
+                                <font>
+                                    <Font size="18" />
+                                </font>
+
+                            </Button>
+
+
+
+
+                            <Separator prefHeight="42.0" prefWidth="360.0" />
+
+
+
+
+                            <Label text="Pending Tasks..." textFill="#035e1b">
+                        <font>
+                           <Font size="17.0" />
+                        </font></Label>
+
+                            <ListView fx:id="pendingTaskListView" prefHeight="120.0" prefWidth="360.0" />
+   
+   
+                           <HBox alignment="CENTER" spacing="20">
+   
+                               <Button onAction="#approveTask" prefWidth="120" style="-fx-background-color:#4CAF50; -fx-text-fill:white; -fx-background-radius:15;" text="Approve">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+   
+   
+                               <Button onAction="#denyTask" prefWidth="120" style="-fx-background-color:#E57373; -fx-text-fill:white; -fx-background-radius:15;" text="Deny">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+   
+                           </HBox>
+
+
+
+
+                        </VBox>
+
+
+                    </AnchorPane>
+
+
+                </Tab>
+
+
+
+
+
+                <!-- ================= ACCOUNTS ================= -->
+
+
+                <Tab text="Accounts">
+
+
+                    <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding:20;">
+
+
+
+                        <Label text="Linked Accounts" textFill="#035e1b">
+
+                            <font>
+                                <Font size="30" />
+                            </font>
+
+                        </Label>
+
+
+
+
+                        <ListView fx:id="childrenListView" prefHeight="300" prefWidth="280" />
+
+
+                        <Button fx:id="createChildButton" onAction="#openCreateChildAccount" prefWidth="220" style="-fx-background-radius:20;" text="Create Child Account">
+
+                            <font>
+                                <Font size="15" />
+                            </font>
+
+                        </Button>
+
+
+                        <Button fx:id="removeChildButton" onAction="#removeChild" prefWidth="220" style="-fx-background-radius:20;" text="Remove Selected Child">
+
+                            <font>
+                                <Font size="15" />
+                            </font>
+
+                        </Button>
+
+
+
+
+
+                        <!-- LINKING CODE AT BOTTOM -->
+
+
+                        <Separator prefWidth="280" />
+
+
+
+                        <Label text="Your Linking Code" textFill="#035e1b">
+
+                            <font>
+                                <Font size="18" />
+                            </font>
+
+                        </Label>
+
+
+
+
+                        <Label fx:id="linkingCodeLabel" text="00000" textFill="#035e1b">
+
+                            <font>
+                                <Font size="26" />
+                            </font>
+
+                        </Label>
+
+
+
+
+                    </VBox>
+
+
+                </Tab>
+
+
+
+
+
+                <!-- ================= SETTINGS ================= -->
+
+
+                <Tab text="Settings">
+
+
+                    <VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding:30;">
+
+
+
+                        <Label text="Settings" textFill="#035e1b">
+
+                            <font>
+                                <Font size="30" />
+                            </font>
+
+                        </Label>
+
+
+
+                        <Label text="Account Information" textFill="#035e1b">
+
+                            <font>
+                                <Font size="20" />
+                            </font>
+
+                        </Label>
+
+
+
+                        <!-- Username -->
+
+                        <TextField fx:id="usernameSettingsField" prefHeight="45.0" prefWidth="260.0" promptText="Change Username">
+
+
+                            <font>
+                                <Font size="16" />
+                            </font>
+
+
+                        </TextField>
+
+
+
+                        <!-- Password -->
+
+                        <PasswordField fx:id="passwordSettingsField" prefHeight="45.0" prefWidth="260.0" promptText="Change Password">
+
+
+                            <font>
+                                <Font size="16" />
+                            </font>
+
+
+                        </PasswordField>
+
+
+
+
+                        <!-- Time Zone -->
+
+                        <ComboBox fx:id="timeZoneSettingsChoice" prefHeight="45.0" prefWidth="260.0" promptText="Change Time Zone">
+
+
+                        </ComboBox>
+
+
+
+
+                        <!-- Account Type -->
+
+                        <Label text="Account Type: Parent" textFill="#035e1b">
+
+                            <font>
+                                <Font size="18" />
+                            </font>
+
+                        </Label>
+
+
+
+
+                        <!-- Save Button -->
+
+                        <Button onAction="#saveSettings" prefHeight="50.0" prefWidth="260.0" style="-fx-background-color:#4CAF50;                                 -fx-background-radius:20;                                 -fx-text-fill:white;" text="Save Changes">
+
+
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+
+
+                        </Button>
+
+
+
+
+
+                        <Separator prefWidth="280" />
+
+
+
+
+
+                        <!-- Logout -->
+
+                        <Button onAction="#logout" prefHeight="50.0" prefWidth="260.0" style="-fx-background-radius:20;" text="Logout" textFill="RED">
+
+
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+
+
+                        </Button>
+
+
+
+                    </VBox>
+
+
+                </Tab>
+
+
+            </tabs>
+
+
+        </TabPane>
+
+
+    </children>
+
+
+</AnchorPane>
