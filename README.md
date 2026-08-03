@@ -180,6 +180,14 @@ The application interface is created using JavaFX FXML files, including:
 
 ---
 
+# UML Documentation
+
+The final MVC UML diagram for Suntivity is included in the repository documentation folder.
+
+Location: Documentation/Suntivity_Final_MVC_UML.pdf
+
+---
+
 # Known Issues
 
 The following issues are known in the current version of Suntivity:
